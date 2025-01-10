@@ -12,9 +12,9 @@ namespace AppDataRepositoryEF.CW19.Users
     public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
-        public UserRepository()
+        public UserRepository(AppDbContext dbContext)
         {
-            _context = new AppDbContext();
+            _context = dbContext;
         }
 
         public User Add(User user)

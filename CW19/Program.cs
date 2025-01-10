@@ -11,10 +11,15 @@ using System;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var ConnectionString = builder.Configuration.GetConnectionString("ConnectionString");
-builder.Services.AddDbContext<AppDbContext>(option =>
-    option.UseSqlServer(ConnectionString)
-);
+
+var configuration = new ConfigurationBuilder()
+.AddJsonFile("appsettings.json")
+.Build();
+
+var ConnectionString = builder.Configuration.GetConnectionString("sql");
+builder.Services.AddDbContext<AppDbContext>(option =>option.UseSqlServer(ConnectionString));
+
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUserAppService,UserAppService>();

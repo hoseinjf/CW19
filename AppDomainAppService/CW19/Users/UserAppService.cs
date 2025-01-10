@@ -1,4 +1,5 @@
 ﻿using AppDomainCore.CW19.Users.Contract.AppService;
+using AppDomainCore.CW19.Users.Contract.Service;
 using CW19.Models.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,34 +11,34 @@ namespace AppDomainAppService.CW19.Users
 {
     public class UserAppService : IUserAppService
     {
-        private readonly IUserAppService _userAppService;
-        public UserAppService(IUserAppService appService)
+        private readonly IUserService _userService;
+        public UserAppService(IUserService appService)
         {
-            _userAppService = appService;
+            _userService = appService;
         }
         public User Add(User user)
         {
-           return _userAppService.Add(user);
+           return _userService.Add(user);
         }
 
         public void Delete(int userId)
         {
-            _userAppService.Delete(userId);
+            _userService.Delete(userId);
         }
 
         public List<User> GetAllUser()
         {
-            return _userAppService.GetAllUser();
+            return _userService.GetAllUser();
         }
 
         public User GetUserById(int userId)
         {
-            return _userAppService.GetUserById(userId);
+            return _userService.GetUserById(userId);
         }
 
         public User Update(int userId)
         {
-            return _userAppService.Update(userId);
+            return _userService.Update(userId);
         }
     }
 }

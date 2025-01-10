@@ -14,12 +14,8 @@ namespace AppDataRepositoryEF.CW19.Db
         {
             
         }
+
         public DbSet<User> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(DbConfig.ConnectionString);
-            base.OnConfiguring(optionsBuilder);
-        }
     }
 }
