@@ -17,27 +17,27 @@ namespace AppDomainAppService.CW19.Users
         }
         public User Add(User user)
         {
-            throw new NotImplementedException();
+           return _userAppService.Add(user);
         }
 
         public void Delete(int userId)
         {
-            throw new NotImplementedException();
+            _userAppService.Delete(userId);
         }
 
         public List<User> GetAllUser()
         {
-            throw new NotImplementedException();
+            return _userAppService.GetAllUser();
         }
 
         public User GetUserById(int userId)
         {
-            throw new NotImplementedException();
+            return _userAppService.GetUserById(userId);
         }
 
         public User Update(int userId)
         {
-            throw new NotImplementedException();
+            return _userAppService.Update(userId);
         }
     }
 }
