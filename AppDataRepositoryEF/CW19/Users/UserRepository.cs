@@ -39,6 +39,10 @@ namespace AppDataRepositoryEF.CW19.Users
         public User GetUserById(int userId)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == userId);
+            if (user == null) 
+            {
+                throw new Exception("user not found");
+            }
             return user;
         }
 

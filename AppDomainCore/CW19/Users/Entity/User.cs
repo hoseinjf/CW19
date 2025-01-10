@@ -11,7 +11,7 @@ namespace CW19.Models.Entity
         public DateTime BirthDate { get; set; }
         public string Nationalژode { get; set; }
         public string Phone { get; set; }
-        public MembershipEnum MembershipType { get; set; }
+        public MembershipEnum MembershipType { get; set; } = MembershipEnum.Bronze;
         public GenderEnum Gender { get; set; }
 
     }

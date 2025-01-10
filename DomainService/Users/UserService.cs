@@ -18,27 +18,64 @@ namespace DomainService.Users
         }
         public User Add(User user)
         {
-            throw new NotImplementedException();
+            user = new User()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                BirthDate = user.BirthDate,
+                Gender = user.Gender,
+                MembershipType = user.MembershipType,
+                Nationalژode = user.Nationalژode,
+                Phone = user.Phone,
+                RegisterDate = DateTime.Now,
+            };
+            _userRepository.Add(user);
+            return user;
         }
 
         public void Delete(int userId)
         {
-            throw new NotImplementedException();
+            if (userId !=0) 
+            {
+                _userRepository.Delete(userId);
+            }
+            else
+            {
+                throw new Exception(" user id is null !!! ");
+            }
         }
 
         public List<User> GetAllUser()
         {
-            throw new NotImplementedException();
+            List<User> users =  _userRepository.GetAllUser();
+            if (users == null)
+            {
+                return new List<User>();
+            }
+            return users;
         }
 
         public User GetUserById(int userId)
         {
-            throw new NotImplementedException();
+            return _userRepository.GetUserById(userId);
         }
 
         public User Update(int userId)
         {
-            throw new NotImplementedException();
+            var user = _userRepository.GetUserById(userId);
+            user = new User()
+            {
+                Id = userId,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                BirthDate = user.BirthDate,
+                Gender = user.Gender,
+                MembershipType = user.MembershipType,
+                Nationalژode = user.Nationalژode,
+                Phone = user.Phone,
+                RegisterDate = DateTime.Now,
+            };
+            return _userRepository.Update(user.Id);
         }
     }
 }
