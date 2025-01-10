@@ -1,0 +1,33 @@
+﻿@using CW19.Models.Entity
+@{
+    Layout = "_layout";
+}
+@model List<User>;
+
+<table style="width:100%;height:100%;margin:50px; text-align:center;align-items:center;justify-content:center" class="table table-bordered table-responsive table-secondary table-hover">
+    <thead>
+        <tr>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>تاریخ تولد</th>
+            <th>کد ملی</th>
+            <th>شماره موبایل</th>
+            <th>جنسیت</th>
+            <th>سطح اشتراک</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.BirthDate</td>
+                <td>@item.Nationalژode</td>
+                <td>@item.Phone</td>
+                <td>@item.Gender</td>
+                <td>@item.MembershipType</td>
+            </tr>
+        }
+    </tbody>
+</table>

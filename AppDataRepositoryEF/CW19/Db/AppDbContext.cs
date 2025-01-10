@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace AppDataRepositoryEF.CW19.Db
 {
-    internal class AppDbContext:DbContext
+    public class AppDbContext:DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> dbContext):base(dbContext)
+        {
+            
+        }
         public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

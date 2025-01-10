@@ -1,8 +1,25 @@
+using AppDataRepositoryEF.CW19.Users;
+using AppDomainAppService.CW19.Users;
+using AppDomainCore.CW19.Users.Contract.AppService;
+using AppDomainCore.CW19.Users.Contract.Repository;
+using AppDomainCore.CW19.Users.Contract.Service;
+using DomainService.Users;
+using Microsoft.EntityFrameworkCore;
+using AppDataRepositoryEF.CW19.Db;
+using System;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+var ConnectionString = builder.Configuration.GetConnectionString("ConnectionString");
+builder.Services.AddDbContext<AppDbContext>(option =>
+    option.UseSqlServer(ConnectionString)
+);
 
+builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IUserAppService,UserAppService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
