@@ -13,6 +13,6 @@ namespace AppDomainCore.CW19.Users.Contract.AppService
         User Update(int userId);
         void Delete(int userId);
         User GetUserById(int userId);
-        List<User> GetAllUser(int userId);
+        List<User> GetAllUser();
     }
 }

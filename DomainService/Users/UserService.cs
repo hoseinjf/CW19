@@ -26,7 +26,7 @@ namespace DomainService.Users
             throw new NotImplementedException();
         }
 
-        public List<User> GetAllUser(int userId)
+        public List<User> GetAllUser()
         {
             throw new NotImplementedException();
         }

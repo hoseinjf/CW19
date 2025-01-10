@@ -1,4 +1,5 @@
-﻿using AppDomainCore.CW19.Users.Contract.Repository;
+﻿using AppDataRepositoryEF.CW19.Db;
+using AppDomainCore.CW19.Users.Contract.Repository;
 using CW19.Models.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,42 @@ namespace AppDataRepositoryEF.CW19.Users
 {
     public class UserRepository : IUserRepository
     {
+        private readonly AppDbContext _context;
+        public UserRepository()
+        {
+            _context = new AppDbContext();
+        }
+
         public User Add(User user)
         {
-            throw new NotImplementedException();
+            _context.Users.Add(user);
+            _context.SaveChanges();
+            return user;
         }
 
         public void Delete(int userId)
         {
-            throw new NotImplementedException();
+            var user = GetUserById(userId);
+            _context.Users.Remove(user);
+            _context.SaveChanges();
         }
 
-        public List<User> GetAllUser(int userId)
+        public List<User> GetAllUser()
         {
-            throw new NotImplementedException();
+            return _context.Users.ToList();
         }
 
         public User GetUserById(int userId)
         {
-            throw new NotImplementedException();
+            var user = _context.Users.FirstOrDefault(x => x.Id == userId);
+            return user;
         }
 
         public User Update(int userId)
         {
-            throw new NotImplementedException();
+            var user = GetUserById(userId);
+            _context.Users.Add(user);
+            return user;
         }
     }
 }

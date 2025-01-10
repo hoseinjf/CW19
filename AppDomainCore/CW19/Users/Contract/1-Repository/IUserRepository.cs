@@ -13,7 +13,7 @@ namespace AppDomainCore.CW19.Users.Contract.Repository
         User Update(int userId);
         void Delete(int userId);
         User GetUserById(int userId);
-        List<User> GetAllUser(int userId);
+        List<User> GetAllUser();
 
     }
 }
