@@ -25,7 +25,7 @@ namespace DomainService.Users
                 BirthDate = user.BirthDate,
                 Gender = user.Gender,
                 MembershipType = user.MembershipType,
-                Nationalژode = user.Nationalژode,
+                NationalCode = user.NationalCode,
                 Phone = user.Phone,
                 RegisterDate = DateTime.Now,
             };
@@ -60,22 +60,17 @@ namespace DomainService.Users
             return _userRepository.GetUserById(userId);
         }
 
-        public User Update(int userId)
+        public User Update(User user)
         {
-            var user = _userRepository.GetUserById(userId);
-            user = new User()
+            return _userRepository.Update(user);
+        }
+        public List<User> Search(string name)
+        {
+            if(name == null)
             {
-                Id = userId,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                BirthDate = user.BirthDate,
-                Gender = user.Gender,
-                MembershipType = user.MembershipType,
-                Nationalژode = user.Nationalژode,
-                Phone = user.Phone,
-                RegisterDate = DateTime.Now,
-            };
-            return _userRepository.Update(user.Id);
+                return new List<User>();
+            }
+            return _userRepository.Search(name);
         }
     }
 }

@@ -47,7 +47,7 @@ namespace AppDataRepositoryEF.Migrations
                     b.Property<int>("MembershipType")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nationalژode")
+                    b.Property<string>("NationalCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

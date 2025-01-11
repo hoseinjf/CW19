@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppDataRepositoryEF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250110103643_init")]
+    [Migration("20250110111451_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -50,7 +50,7 @@ namespace AppDataRepositoryEF.Migrations
                     b.Property<int>("MembershipType")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nationalژode")
+                    b.Property<string>("NationalCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

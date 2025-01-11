@@ -4,6 +4,22 @@
 }
 @model List<User>;
 
+<br />
+<a type="submit" name="Add" class="btn btn-success" asp-controller="User" asp-action="Add">ثبت یوزر جدید</a>
+<br />
+<br />
+<form asp-action="Search" method="post">
+    <label>
+        <input type="search" name="name" />
+    </label>
+    <input type="submit" id="name" name="name" class="btn btn-info" asp-controller="User" asp-action="Search" value="جستوجو">
+
+</form>
+
+<br />
+<br />
+
+
 <table style="width:100%;height:100%;margin:50px; text-align:center;align-items:center;justify-content:center" class="table table-bordered table-responsive table-secondary table-hover">
     <thead>
         <tr>
@@ -14,6 +30,7 @@
             <th>شماره موبایل</th>
             <th>جنسیت</th>
             <th>سطح اشتراک</th>
+            <th> عملیات</th>
         </tr>
     </thead>
     <tbody>
@@ -23,10 +40,18 @@
                 <td>@item.FirstName</td>
                 <td>@item.LastName</td>
                 <td>@item.BirthDate</td>
-                <td>@item.Nationalژode</td>
+                <td>@item.NationalCode</td>
                 <td>@item.Phone</td>
                 <td>@item.Gender</td>
                 <td>@item.MembershipType</td>
+                <td>
+                    <br />
+                    <a type="submit" name="Update" class="btn btn-warning" asp-controller="User" asp-action="Update" asp-route-id="@item.Id">ویرایش اطلاعات</a>
+                    <br />
+                    <br />
+                    <a type="submit" name="id" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">حذف کاربر</a>
+                    <br />
+                </td>
             </tr>
         }
     </tbody>

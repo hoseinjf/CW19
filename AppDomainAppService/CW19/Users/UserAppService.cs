@@ -36,9 +36,13 @@ namespace AppDomainAppService.CW19.Users
             return _userService.GetUserById(userId);
         }
 
-        public User Update(int userId)
+        public User Update(User user)
         {
-            return _userService.Update(userId);
+            return _userService.Update(user);
+        }
+        public List<User> Search(string name)
+        {
+            return _userService.Search(name);
         }
     }
 }

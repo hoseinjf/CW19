@@ -1,0 +1,64 @@
+﻿@using CW19.Models.Entity
+@{
+    Layout = "_layout";
+}
+
+@model User;
+
+<div>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form asp-action="Add">
+        <h3>فرم ثبت نام</h3>
+        <input type="hidden" name="Id">
+        <br><br>
+        <input type="hidden" name="RegisterDate">
+        <br><br>
+        <label name="FirstName" for="FirstName">نام </label>
+        <br><br>
+        <input type="text" name="FirstName" placeholder="FirstName" id="FirstName">
+        <br><br>
+
+        <label name="LastName" for="LastName">نام خانوادگی</label>
+        <br><br>
+        <input type="text" name="LastName" placeholder="LastName" id="LastName">
+        <br><br>
+        
+
+        <label name="BirthDate" for="BirthDate">تاریخ تولد </label>
+        <br><br>
+        <input type="date" name="BirthDate" placeholder="BirthDate" id="BirthDate">
+        <br><br>
+        <label name="NationalCode" for="NationalCode">کدملی</label>
+        <br><br>
+        <input type="text" name="NationalCode" placeholder="NationalCode" id="NationalCode">
+        <br><br>
+        <label name="Phone" for="Phone">موبایل</label>
+        <br><br>
+        <input type="tel" name="Phone" placeholder="Phone" id="Phone">
+        <br><br>
+        <label name="MembershipType" for="MembershipType">اشتراک کاربری</label>
+        <br><br>
+        <select name="MembershipType">
+            <option value="">انتخاب کنید</option>
+            <option value="@Model.MembershipType=1">طلایی</option>
+            <option value="@Model.MembershipType=2">نقره ای</option>
+            <option value="@Model.MembershipType=3">برنزی</option>
+        </select>
+
+@*         <input type="text" name="MembershipType" placeholder="MembershipType" id="MembershipType">
+ *@     
+ 
+ 
+ <br><br>
+        <label name="Gender" for="Gender">جنسیت</label>
+        <br><br>
+        <input type="radio" name="Gender" placeholder="Gender" id="Gender">
+        <input type="radio" name="Gender" placeholder="Gender" id="Gender" value="@Model.Gender=1">
+        <br><br>
+        <input value="ثبت نام" class="btn btn-success" id="bin" name="Add" type="submit">
+        <br><br>
+    </form>
+</div>

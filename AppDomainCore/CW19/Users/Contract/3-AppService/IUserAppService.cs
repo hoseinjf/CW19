@@ -10,9 +10,11 @@ namespace AppDomainCore.CW19.Users.Contract.AppService
     public interface IUserAppService
     {
         User Add(User user);
-        User Update(int userId);
+        User Update(User user);
         void Delete(int userId);
         User GetUserById(int userId);
         List<User> GetAllUser();
+        List<User> Search(string name);
+
     }
 }

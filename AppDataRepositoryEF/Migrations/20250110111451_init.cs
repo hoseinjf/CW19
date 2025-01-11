@@ -21,7 +21,7 @@ namespace AppDataRepositoryEF.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegisterDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Nationalژode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NationalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MembershipType = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false)

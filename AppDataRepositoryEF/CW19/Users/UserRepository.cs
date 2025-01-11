@@ -1,6 +1,7 @@
 ﻿using AppDataRepositoryEF.CW19.Db;
 using AppDomainCore.CW19.Users.Contract.Repository;
 using CW19.Models.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,18 +40,27 @@ namespace AppDataRepositoryEF.CW19.Users
         public User GetUserById(int userId)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == userId);
-            if (user == null) 
+            if (user == null)
             {
                 throw new Exception("user not found");
             }
             return user;
         }
 
-        public User Update(int userId)
+        public User Update(User user)
         {
-            var user = GetUserById(userId);
-            _context.Users.Add(user);
+            _context.Update(user);
+            _context.SaveChanges();
             return user;
         }
+        public List<User> Search(string name)
+        {
+            return _context.Users.Where
+                (x => x.FirstName.ToLower().Contains(name)
+                || x.LastName.ToLower().Contains(name)
+                ).ToList();
+        }
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CW19.Models.Enum;
+using System.ComponentModel.DataAnnotations;
 
 namespace CW19.Models.Entity
 {
@@ -9,10 +10,13 @@ namespace CW19.Models.Entity
         public string FirstName { get; set; }
         public DateTime RegisterDate { get; set; }
         public DateTime BirthDate { get; set; }
-        public string Nationalژode { get; set; }
+        [Required]
+        [MinLength(10)]
+        [MaxLength(10)]
+        public string NationalCode { get; set; }
         public string Phone { get; set; }
         public MembershipEnum MembershipType { get; set; } = MembershipEnum.Bronze;
-        public GenderEnum Gender { get; set; }
+        public GenderEnum Gender { get; set; } = GenderEnum.man;
 
     }
 }
