@@ -15,8 +15,8 @@ namespace CW19.Models.Entity
         [MaxLength(10)]
         public string NationalCode { get; set; }
         public string Phone { get; set; }
-        public MembershipEnum MembershipType { get; set; } = MembershipEnum.Bronze;
-        public GenderEnum Gender { get; set; } = GenderEnum.man;
+        public MembershipEnum MembershipType { get; set; }
+        public GenderEnum Gender { get; set; } 
 
     }
 }

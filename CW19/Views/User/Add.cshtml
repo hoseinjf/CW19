@@ -41,22 +41,20 @@
         <br><br>
         <label name="MembershipType" for="MembershipType">اشتراک کاربری</label>
         <br><br>
-        <select name="MembershipType">
+        <select name="membership">
             <option value="">انتخاب کنید</option>
-            <option value="@Model.MembershipType=1">طلایی</option>
-            <option value="@Model.MembershipType=2">نقره ای</option>
-            <option value="@Model.MembershipType=3">برنزی</option>
+            <option value="1">طلایی</option>
+            <option value="2">نقره ای</option>
+            <option value="3">برنزی</option>
         </select>
-
-@*         <input type="text" name="MembershipType" placeholder="MembershipType" id="MembershipType">
- *@     
- 
- 
  <br><br>
         <label name="Gender" for="Gender">جنسیت</label>
         <br><br>
-        <input type="radio" name="Gender" placeholder="Gender" id="Gender">
-        <input type="radio" name="Gender" placeholder="Gender" id="Gender" value="@Model.Gender=1">
+        <select name="gender">
+            <option value="">انتخاب کنید</option>
+            <option value="0">مرد</option>
+            <option value="1">زن</option>
+        </select>
         <br><br>
         <input value="ثبت نام" class="btn btn-success" id="bin" name="Add" type="submit">
         <br><br>

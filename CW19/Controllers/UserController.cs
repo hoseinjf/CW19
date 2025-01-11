@@ -22,14 +22,16 @@ namespace CW19_MVC.Controllers
             return View(userList);
         }
 
-        public IActionResult Add(User user,int i =0)
+        public IActionResult Add(User user)
         {
             user = new User();
             return View(user);
         }
         [HttpPost]
-        public IActionResult Add(User user)
+        public IActionResult Add(User user, MembershipEnum membership, GenderEnum gender)
         {
+            user.Gender = gender;
+            user.MembershipType = membership;
             var userList = _userAppService.Add(user);
             return RedirectToAction("Index");
         }
@@ -38,13 +40,14 @@ namespace CW19_MVC.Controllers
         public IActionResult Update(int Id)
         {
             var user = _userAppService.GetUserById(Id);
-            ViewBag.member = new SelectList(_userAppService.GetUserById(Id).MembershipType.ToString());
             return View(user);
         }
 
         [HttpPost]
-        public IActionResult Update(User user)
+        public IActionResult Update(User user, MembershipEnum membership,GenderEnum gender)
         {
+            user.Gender = gender;
+            user.MembershipType = membership;
             var us = user;
 
             _userAppService.Update(us);
