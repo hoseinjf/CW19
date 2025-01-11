@@ -31,7 +31,7 @@
 
         <label name="BirthDate" for="BirthDate">تاریخ تولد </label>
         <br><br>
-        <input type="datetime" value="@Model.BirthDate" name="BirthDate" placeholder="BirthDate" id="BirthDate">
+        <input type="date" value="@Model.BirthDate" name="BirthDate" placeholder="BirthDate" id="BirthDate">
         <br><br>
         <label name="NationalCode" for="NationalCode">کدملی</label>
         <br><br>
@@ -43,11 +43,31 @@
         <br><br>
         <label name="MembershipType" for="MembershipType">اشتراک کاربری</label>
         <br><br>
-        <input type="text" value="@Model.MembershipType" name="MembershipType" placeholder="MembershipType" id="MembershipType">
+
+
+        <label for="MembershipType">
+        دسته بندی
+        </label>
+        <select id="MembershipType" name="MembershipType">
+            <option value="(SelectList)ViewBag.member)">@Model.MembershipType</option>
+            <option value="">@Model.MembershipType</option>
+            <option value="">@Model.MembershipType</option>
+
+        </select>
+
+
+
         <br><br>
         <label name="Gender" for="Gender">جنسیت</label>
         <br><br>
-        <input type="radio" value="@Model.Gender" name="Gender" placeholder="Gender" id="Gender">
+        <label>
+            مرد
+            <input type="radio" value="@Model.Gender" name="Gender" placeholder="Gender" id="Gender">
+        </label>
+        <label>
+            زن
+            <input type="radio" value="@Model.Gender" name="Gender" placeholder="Gender" id="Gender">
+        </label>
         <br><br>
         <input value="ثبت تغیرات" class="btn btn-success" asp-action="Update" asp-controller="User" name="Update" type="submit">
         <br><br>
